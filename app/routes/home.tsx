@@ -20,7 +20,7 @@ export default function Home() {
   useEffect(() => {
     if(!isLoading &&  !auth.isAuthenticated){
       //not signed in
-      navigate("/auth?next=/",{replace:true})
+      navigate("/auth?next=/")
     }
   
     
@@ -45,7 +45,6 @@ export default function Home() {
       </div>
     )}
     </section>
-
 
 
 
