@@ -1,7 +1,11 @@
 import Navbar from "~/components/Navbar";
 import type { Route } from "./+types/home";
-import { resumes } from "constants";
 import ResumeCard from "~/components/ResumeCard";
+import { resumes } from "../../constants/index";
+import { usePuterStore } from "~/lib/puter";
+import { replace, useNavigate } from "react-router";
+import { useEffect } from "react";
+
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Resume Analyser" },
@@ -10,6 +14,20 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
+  const {auth, isLoading}=usePuterStore()
+  const navigate=useNavigate()
+
+  useEffect(() => {
+    if(!isLoading &&  !auth.isAuthenticated){
+      //not signed in
+      navigate("/auth?next=/",{replace:true})
+    }
+  
+    
+  }, [auth.isAuthenticated,navigate,isLoading])
+  
+
+
   return <main className="bg-[url('/images/bg-main.svg')] bg-cover">
     <Navbar></Navbar>
 
