@@ -100,6 +100,9 @@ form {
   .resumes-section {
     @apply flex flex-wrap max-md:flex-col max-md:gap-4 gap-6 items-start max-md:items-center w-full max-w-[1850px] justify-evenly;
   }
+   /* .resumes-section {
+    @apply grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-[1850px];
+} */
 
   .resume-card {
     @apply flex flex-col gap-8 h-[560px] w-[350px] lg:w-[430px] xl:w-[490px] bg-white rounded-2xl p-4;
