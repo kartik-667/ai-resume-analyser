@@ -109,6 +109,8 @@ function upload() {
 
         setstatus("Analysis complete, redirecting...")
         console.log(data);
+
+        navigate(`/resume/${uuid}`)
         
 
 
