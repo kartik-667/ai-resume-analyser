@@ -113,20 +113,30 @@ function resume() {
         </nav>
 
         <div className='flex flex-row w-full  max-lg:flex-col-reverse'>
-            <section className="feedback-section bg-[url('/images/bg-small.svg')] bg-cover h-[100vh] sticky top-0 items-center justify-center">
-                {imageUrl && resumeUrl && (
-                    <div className='animate-in fade-in duration-1000 gradient-border max-sm:m-0 h-[90%] max-w-xl:h-fit w-fit'>
-                        <a href={resumeUrl} target='_blank'>
-                            <img src={imageUrl} alt="resume-photo" className='max-w-full h-auto object-contain' />
-
-                        </a>
-
-
-                    </div>
-                )}
-
-
-            </section>
+            
+           
+             <section className="feedback-section bg-[url('/images/bg-small.svg')] bg-cover h-[100vh] sticky top-0 flex items-center justify-center">
+                    {imageUrl && resumeUrl ? ( 
+                        <div className='
+                            animate-in fade-in duration-1000
+                            gradient-border
+                            max-sm:m-0
+                            h-[90vh] max-h-[90vh]  
+                            w-[90%] max-w-[500px] 
+                            flex items-center justify-center 
+                        '>
+                            <a href={resumeUrl} target='_blank' rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
+                                <img
+                                    src={imageUrl}
+                                    alt="resume-photo"
+                                    className="max-w-full max-h-full h-auto object-contain" /* Crucial image sizing */
+                                />
+                            </a>
+                        </div>
+                    ) : (
+                        <p className="text-gray-600">Loading resume preview...</p>
+                    )}
+                </section>
 
             {/* section for feedback */}
             <section className='feedback-section'>
