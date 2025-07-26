@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
+import ATS from '~/components/ATS'
+import Details from '~/components/Details'
+import Summary from '~/components/Summary'
 import { usePuterStore } from '~/lib/puter'
 export const meta=()=>{
     return [
@@ -59,6 +62,8 @@ function resume() {
 
             setfeedback(rdata.feedback)
 
+            
+
 
 
 
@@ -77,9 +82,16 @@ function resume() {
 
     useEffect(()=>{
         getUUIDdata(id)
+        
 
         
     },[id]) //on page load, get the feedback data using uuid 
+
+    useEffect(()=>{
+        if(feedback) console.log(feedback);
+        
+
+    },[feedback])
 
     useEffect(() => {
     if(!isLoading &&  !auth.isAuthenticated){
@@ -105,7 +117,7 @@ function resume() {
                 {imageUrl && resumeUrl && (
                     <div className='animate-in fade-in duration-1000 gradient-border max-sm:m-0 h-[90%] max-w-xl:h-fit w-fit'>
                         <a href={resumeUrl} target='_blank'>
-                            <img src={imageUrl}alt="resume-photo" />
+                            <img src={imageUrl} alt="resume-photo" className='max-w-full h-auto object-contain' />
 
                         </a>
 
@@ -121,11 +133,16 @@ function resume() {
                 <h2 className='text-4xl font-bold !text-black'>Resume review</h2>
                 {feedback ? (
                     <div className='flex flex-col gap-8 animate-in duration-1000 fade-in'>
-                        Summary ATS Details
+                        
+                        <Summary feedback={feedback}></Summary>
+                        <ATS ats={feedback.ATS} suggestion={feedback.ATS.tips} ></ATS>
+                        <Details details={feedback}></Details>
+
                     </div>
+                    
 
                 ):(
-                    <img src="/images/resume-scan-2.gif" alt="scan-image"  />
+                    <img src="/images/resume-scan-2.gif" alt="scan-image"   />
 
                 )}
             </section>
