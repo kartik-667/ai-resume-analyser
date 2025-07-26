@@ -136,7 +136,7 @@ function resume() {
                         
                         <Summary feedback={feedback}></Summary>
                         <ATS ats={feedback.ATS} suggestion={feedback.ATS.tips} ></ATS>
-                        <Details details={feedback}></Details>
+                        <Details feedback={feedback}></Details>
 
                     </div>
                     

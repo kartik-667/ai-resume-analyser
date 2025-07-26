@@ -31,7 +31,7 @@ function ATS({ats,suggestion}) {
                     {suggestion.map((ele,index)=> (
                         <div className='flex  items-center gap-1 p-1 '>
                             <img src={ele.type==="good" ? tipTypeurl.good : tipTypeurl.improve} alt="" className='h-6 w-6' />
-                            <p key={index}>{ele.tip}</p>
+                            <p key={index} className='text-lg'>{ele.tip}</p>
 
                         </div>
                     ))}
@@ -41,6 +41,7 @@ function ATS({ats,suggestion}) {
 
         </div>
       </div>
+      <p className='p-2 text-gray-700'>⭐ Optimize your resume to conquer ATS and capture recruiter attention.</p>
     </div>
   )
 }
