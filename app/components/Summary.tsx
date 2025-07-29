@@ -31,7 +31,7 @@ function Summary({feedback}) {
             <ScoreGauge  score={feedback.overallScore}></ScoreGauge>
 
             <div className='flex flex-col items-center justify-center w-full '>
-                <h2>Your Resume Score</h2>
+                <h2>Your Overall Resume Score</h2>
                 
             </div>
 

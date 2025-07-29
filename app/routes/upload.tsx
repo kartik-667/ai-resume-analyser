@@ -20,20 +20,20 @@ function upload() {
     }
 
 
-    function handleSubmit(e:FormEvent<HTMLFormElement>){
+    async function handleSubmit(e:FormEvent<HTMLFormElement>){
         e.preventDefault()
         const form=document.querySelector("#form")
         if(!form) return
         const formData=new FormData(form)
         const companyName=formData.get("company-name") as string
-        const jobDesc=formData.get("job-title") as string
-        const jobTitle=formData.get("job-desc") as string
+        const jobDesc=formData.get("job-desc") as string
+        const jobTitle=formData.get("job-title") as string
 
         console.log({
             file,companyName,jobDesc,jobTitle
         });
 
-        const res=handleAnalyse({companyName,jobDesc,jobTitle})
+        await handleAnalyse({companyName,jobDesc,jobTitle})
             
 
 
